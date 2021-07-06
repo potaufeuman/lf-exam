@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
-import useAxios from 'axios-hooks';
-import _ from 'lodash';
-import { TextField, Button, Box } from '@material-ui/core';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import * as React from "react";
+import { useState, useEffect } from "react";
+import useAxios from "axios-hooks";
+import _ from "lodash";
+import { TextField, Button, Box } from "@material-ui/core";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 
 export interface ILabelAnnotations {
   locations: any[];
@@ -17,34 +17,36 @@ export interface ILabelAnnotations {
   boundingPoly: any;
 }
 
-const useStyles = makeStyles((theme) => createStyles({
-  root: {
-    marginBottom: 20,
-  },
-  textField: {
-    height: 40,
-  },
-  button: {
-    height: 40,
-  },
-}));
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    root: {
+      marginBottom: 20,
+    },
+    textField: {
+      height: 40,
+    },
+    button: {
+      height: 40,
+    },
+  })
+);
 // React.Dispatch; 「Aという型を指定して戻り値はない」という意味の関数
 // React.SetStateAction; 「何かしらのデータそのもの」もしくは「受け付けた引数の型を返す何かしらの関数」
 type Props = {
   setAnnotations: React.Dispatch<
     React.SetStateAction<ILabelAnnotations[] | null>
-  >
-}
+  >;
+};
 
 export const Analyze: React.FC<Props> = ({ setAnnotations }) => {
   const classes = useStyles();
-  const [imageUrl, setImageUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState("");
   const [{ data, loading }, callApi] = useAxios(
     {
-      url: 'https://lf-exam-v2.web.app/api/analyze',
+      url: "https://lf-exam-v2.web.app/api/analyze",
       params: { imageUrl },
     },
-    { manual: true },
+    { manual: true }
   );
   // useEffect に渡された関数はレンダーの結果が画面に反映された後に動作
   useEffect(() => {
@@ -77,7 +79,7 @@ export const Analyze: React.FC<Props> = ({ setAnnotations }) => {
         className={classes.button}
         onClick={() => callApi()}
       >
-        {loading ? 'Analyzing...' : 'Analyze'}
+        {loading ? "Analyzing..." : "Analyze"}
       </Button>
     </Box>
   );

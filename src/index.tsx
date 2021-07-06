@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { render } from 'react-dom';
-import App from './pages/app'
+import * as React from "react";
+import { render } from "react-dom";
+import App from "./pages/app";
 
 const Main = (
   <>
@@ -8,4 +8,4 @@ const Main = (
   </>
 );
 
-render(Main, document.getElementById('app'));
+render(Main, document.getElementById("app"));
