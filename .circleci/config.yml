@@ -1,7 +1,7 @@
-version: 2
+version: 2.1
 jobs: # we now have TWO jobs, so that a workflow can coordinate them!
   one: # This is our first job.
-    version: 2
+    version: 2.1
 jobs: # 今回は 2 つのジョブを用意し、ワークフロー機能でジョブの調整を行います
   one: # 1 つ目のジョブ
     docker: # Docker Executor を使用します
